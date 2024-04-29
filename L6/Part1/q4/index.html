@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Sorting</title>
+<script>
+function sortAndDisplayStrings() {
+    let inputString = document.getElementById("inputStrings").value;
+    let stringsArray = inputString.split(",").map(str => str.trim());
+    let sortedArray = stringsArray.slice().sort();
+
+    document.getElementById("sortedStrings").innerHTML = "<b>Sorted Strings:</b> " + sortedArray.join(", ") + "<br>";
+
+    let eStrings = stringsArray.filter(str => str.charAt(0).toLowerCase() === 'e');
+    document.getElementById("eStrings").innerHTML = "<b>Strings starting with 'e' or 'E':</b> " + (eStrings.length > 0 ? eStrings.join(", ") : "None");
+}
+</script>
+</head>
+<body>
+    <h2>String Sorting</h2>
+    <label for="inputStrings">Enter N number of strings (comma-separated):</label><br>
+    <input type="text" id="inputStrings" name="inputStrings"><br><br>
+
+    <input type="button" value="Submit" onclick="sortAndDisplayStrings()"><br><br>
+
+    <div id="sortedStrings"></div><br>
+    <div id="eStrings"></div>
+</body>
+</html>

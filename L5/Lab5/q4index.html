@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <textarea id="result" rows="10" cols="50" readonly></textarea>
+  <textarea id="resultOptimized" rows="10" cols="50" readonly></textarea>
+
+  <script>
+    function isPrime(number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function findPrimes() {
+        let primes = [];
+        for (let i = 2; i <= 1000; i++) {
+            if (isPrime(i)) {
+                primes.push(i);
+            }
+        }
+        return primes;
+    }
+
+    let primeNumbers = findPrimes();
+    let result = "Prime numbers between 1 and 1000:\n";
+    for (let prime of primeNumbers) {
+        result += prime + ", ";
+    }
+
+    document.getElementById("result").innerText = result;
+
+    function isPrimeOptimized(number) {
+        if (number <= 1) {
+            return false;
+        }
+        if (number === 2) {
+            return true;
+        }
+        if (number % 2 === 0) {
+            return false;
+        }
+        for (let i = 3; i <= Math.sqrt(number); i += 2) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function findPrimesOptimized() {
+        let primes = [];
+        for (let i = 2; i <= 1000; i++) {
+            if (isPrimeOptimized(i)) {
+                primes.push(i);
+            }
+        }
+        return primes;
+    }
+
+    let primeNumbersOptimized = findPrimesOptimized();
+    let resultOptimized = "Prime numbers between 1 and 1000 using optimized method:\n";
+    for (let prime of primeNumbersOptimized) {
+        resultOptimized += prime + ", ";
+    }
+
+    document.getElementById("resultOptimized").innerText = resultOptimized;
+  </script>
+</body>
+</html>

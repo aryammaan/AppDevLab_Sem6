@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator</title>
+</head>
+<body>
+  <h2>Scientific Calculator</h2>
+  <form id="calculator">
+    <label for="num1">Number 1:</label>
+    <input type="text" id="num1"><br>
+    <label for="num2">Number 2:</label>
+    <input type="text" id="num2"><br>
+    <button type="button" onclick="add()">Addition (+)</button>
+    <button type="button" onclick="subtract()">Subtraction (-)</button>
+    <button type="button" onclick="multiply()">Multiplication (*)</button>
+    <button type="button" onclick="divide()">Division (/)</button><br>
+    <label for="result">Result:</label>
+    <input type="text" id="result" readonly>
+    <button type="button" onclick="clearResult()">Clear Result</button>
+  </form>
+
+  <script>
+    function add() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      document.getElementById('result').value = num1 + num2;
+    }
+
+    function subtract() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      document.getElementById('result').value = num1 - num2;
+    }
+
+    function multiply() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      document.getElementById('result').value = num1 * num2;
+    }
+
+    function divide() {
+      const num1 = parseFloat(document.getElementById('num1').value);
+      const num2 = parseFloat(document.getElementById('num2').value);
+      document.getElementById('result').value = num1 / num2;
+    }
+
+    function clearResult() {
+      document.getElementById('result').value = '';
+    }
+  </script>
+</body>
+</html>

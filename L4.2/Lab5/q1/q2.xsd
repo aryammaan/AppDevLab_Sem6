@@ -1,0 +1,41 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="bib">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="book" type="bookType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+    <xs:complexType name="bookType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:choice>
+                <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                    <xs:element name="author" type="authorType"/>
+                </xs:sequence>
+                <xs:sequence minOccurs="1" maxOccurs="unbounded">
+                    <xs:element name="editor" type="editorType"/>
+                </xs:sequence>
+            </xs:choice>
+            <xs:element name="publisher" type="xs:string"/>
+            <xs:element name="price" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="year" type="xs:string" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="authorType">
+        <xs:sequence>
+            <xs:element name="last" type="xs:string"/>
+            <xs:element name="first" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="editorType">
+        <xs:sequence>
+            <xs:element name="last" type="xs:string"/>
+            <xs:element name="first" type="xs:string"/>
+            <xs:element name="affiliation" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

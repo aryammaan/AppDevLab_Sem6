@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three-Letter Words Generator</title>
+<script>
+function generateThreeLetterWords() {
+    let fiveLetterWord = document.getElementById("fiveLetterWord").value.trim().toLowerCase();
+
+    if (fiveLetterWord.length !== 5) {
+        alert("Please enter a five-letter word.");
+        return;
+    }
+
+    let threeLetterWords = [];
+    
+
+    function generatePermutations(currentWord, remainingLetters) {
+        if (currentWord.length === 3) {
+            threeLetterWords.push(currentWord);
+            return;
+        }
+        
+        for (let i = 0; i < remainingLetters.length; i++) {
+            let nextLetter = remainingLetters[i];
+            let newWord = currentWord + nextLetter;
+            let newRemainingLetters = remainingLetters.substring(0, i) + remainingLetters.substring(i + 1);
+            generatePermutations(newWord, newRemainingLetters);
+        }
+    }
+    
+
+    generatePermutations('', fiveLetterWord);
+
+    document.getElementById("threeLetterWordsOutput").innerHTML = "Three-Letter Words: " + threeLetterWords.join(", ");
+}
+</script>
+</head>
+<body>
+    <h2>Three-Letter Words Generator</h2>
+    <label for="fiveLetterWord">Enter a five-letter word:</label><br>
+    <input type="text" id="fiveLetterWord" name="fiveLetterWord"><br><br>
+
+    <input type="button" value="Generate" onclick="generateThreeLetterWords()"><br><br>
+
+    <div id="threeLetterWordsOutput"></div>
+</body>
+</html>

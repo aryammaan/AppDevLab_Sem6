@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date Manipulation</title>
+<script>
+function displaySevenDays() {
+    let currentDate = new Date();
+    let currentDateNumber = currentDate.getDate();
+    let currentDay = currentDate.toLocaleString('en-US', { weekday: 'long' });
+    let currentMonth = currentDate.toLocaleString('en-US', { month: 'long' });
+    let currentYear = currentDate.getFullYear();
+
+    let previousDate = new Date(currentDate);
+    previousDate.setDate(currentDateNumber - 7);
+
+    let nextDate = new Date(currentDate);
+    nextDate.setDate(currentDateNumber + 7);
+
+    let previousDateString = previousDate.toLocaleDateString();
+    let nextDateString = nextDate.toLocaleDateString();
+
+    document.write("<b>Seven days before the current date:</b> " + previousDateString + "<br>");
+    document.write("<b>Seven days after the current date:</b> " + nextDateString + "<br><br>");
+}
+
+function displayAge() {
+    let dob = prompt("Enter your date of birth (YYYY-MM-DD):");
+    let birthDate = new Date(dob);
+    let currentDate = new Date();
+
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+    let months = currentDate.getMonth() - birthDate.getMonth();
+    let days = currentDate.getDate() - birthDate.getDate();
+
+    if (months < 0 || (months === 0 && currentDate.getDate() < birthDate.getDate())) {
+        age--;
+        months += 12;
+    }
+
+    if (days < 0) {
+        months--;
+        days += new Date(currentDate.getFullYear(), currentDate.getMonth(), 0).getDate();
+    }
+
+    document.write("<b>Your current age:</b> " + age + " Years, " + months + " Months, " + days + " Days");
+}
+
+displaySevenDays();
+displayAge();
+</script>
+</head>
+<body>
+</body>
+</html>

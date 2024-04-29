@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Length Count</title>
+<script>
+function countWordLengths() {
+    let text = document.getElementById("inputText").value;
+    let words = text.match(/\b\w+\b/g); 
+
+    let wordLengths = {};
+    for (let word of words) {
+        let length = word.length;
+        if (!wordLengths[length]) {
+            wordLengths[length] = 1;
+        } else {
+            wordLengths[length]++;
+        }
+    }
+
+    let table = "<table border='1'><tr><th>Word Length</th><th>Occurences</th></tr>";
+    for (let length in wordLengths) {
+        table += "<tr><td>" + length + "</td><td>" + wordLengths[length] + "</td></tr>";
+    }
+    table += "</table>";
+
+    document.getElementById("wordLengthTable").innerHTML = table;
+}
+</script>
+</head>
+<body>
+    <h2>Word Length Count</h2>
+    <label for="inputText">Enter text:</label><br>
+    <textarea id="inputText" name="inputText" rows="5" cols="40"></textarea><br><br>
+
+    <input type="button" value="Count Word Lengths" onclick="countWordLengths()"><br><br>
+
+    <div id="wordLengthTable"></div>
+</body>
+</html>

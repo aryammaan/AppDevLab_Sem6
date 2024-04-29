@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armstrong Number Checker</title>
+</head>
+<body>
+  <textarea id="result" rows="10" cols="50" readonly></textarea>
+
+  <script>
+    function isArmstrong(number) {
+        const numStr = number.toString();
+        const numDigits = numStr.length;
+        let sum = 0;
+
+        for (let digit of numStr) {
+            sum += Math.pow(parseInt(digit), numDigits);
+        }
+
+        return sum === number;
+    }
+
+    function findArmstrongNumbers() {
+        let armstrongNumbers = [];
+
+        for (let i = 100; i <= 5000; i++) {
+            if (isArmstrong(i)) {
+                armstrongNumbers.push(i);
+            }
+        }
+
+        return armstrongNumbers;
+    }
+
+    let armstrongNumbers = findArmstrongNumbers();
+    let result = "Armstrong numbers between 100 and 5000:\n";
+    for (let armstrong of armstrongNumbers) {
+        result += armstrong + ", ";
+    }
+
+    document.getElementById("result").innerText = result;
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>Clickable Elements</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    td {
+      width: 100px;
+      height: 50px;
+      border: 1px solid black;
+      padding: 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Clickable Image -->
+<img id="clickable-image" src="image.jpg" alt="Click me!" onclick="clickImage(event)" style="display:block; margin: 20px auto; cursor: pointer;">
+
+<!-- Clickable Table Row -->
+<table onclick="clickTableRow(event)" style="border: 1px solid black; width: 300px; margin: 0 auto; cursor: pointer;">
+  <tr>
+    <td>Click me!</td>
+  </tr>
+</table>
+
+<script>
+  // Function to handle click on the image
+  function clickImage(event) {
+    // Prevent default behavior (opening the image)
+    event.preventDefault();
+    // Display an alert
+    alert("You clicked the image");
+    // Set the event object to true
+    event.stopPropagation();
+  }
+
+  // Function to handle click on the table row
+  function clickTableRow(event) {
+    // Display an alert
+    alert("You clicked the table");
+    // Set the event object to true
+    event.stopPropagation();
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+h1, h2 {
+    font-family: "Times New Roman", Times, serif; 
+    font-size: 22pt;
+    color: green; 
+  }
+  
+
+  h1 {
+    margin-bottom: 10px; 
+  }
+
+  p {
+    font-family: "Times New Roman", Times, serif; 
+    font-size: 12pt; 
+    color: black; 
+  }
+  

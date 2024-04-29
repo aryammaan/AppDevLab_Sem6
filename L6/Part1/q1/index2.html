@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Manipulation</title>
+<script>
+function searchLastOccurrence(str, substr) {
+
+    return str.lastIndexOf(substr);
+}
+
+function extractSubstring(str, start, end) {
+
+    return str.substring(start, end);
+}
+
+function splitString(str, delimiter) {
+
+    return str.split(delimiter);
+}
+
+// Test cases
+let testString = "Hello world! This is a test string.";
+let testSubstring = "is";
+let testDelimiter = " ";
+
+document.write("I. Last occurrence of \"" + testSubstring + "\": " + searchLastOccurrence(testString, testSubstring) + "<br>");
+document.write("II. Extracted substring: \"" + extractSubstring(testString, 6, 11) + "\"<br>");
+document.write("III. Split string: " + splitString(testString, testDelimiter).join(", "));
+</script>
+</head>
+<body>
+</body>
+</html>

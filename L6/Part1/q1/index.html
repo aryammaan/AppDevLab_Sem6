@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Manipulation</title>
+<script>
+function searchLastOccurrence(str, substr) {
+
+    let lastIndex = -1;
+    for (let i = 0; i < str.length; i++) {
+        if (str.substring(i, i + substr.length) === substr) {
+            lastIndex = i;
+        }
+    }
+    return lastIndex;
+}
+
+function extractSubstring(str, start, end) {
+
+    let substring = '';
+    for (let i = start; i < end && i < str.length; i++) {
+        substring += str[i];
+    }
+    return substring;
+}
+
+function splitString(str, delimiter) {
+
+    let substrings = [];
+    let startIndex = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === delimiter) {
+            substrings.push(str.substring(startIndex, i));
+            startIndex = i + 1;
+        }
+    }
+    substrings.push(str.substring(startIndex));
+    return substrings;
+}
+
+let testString = "Hello world! This is a test string.";
+let testSubstring = "is";
+let testDelimiter = " ";
+
+document.write("I. Last occurrence of \"" + testSubstring + "\": " + searchLastOccurrence(testString, testSubstring) + "<br>");
+document.write("II. Extracted substring: \"" + extractSubstring(testString, 6, 11) + "\"<br>");
+document.write("III. Split string: " + splitString(testString, testDelimiter).join(", "));
+</script>
+</head>
+<body>
+</body>
+</html>

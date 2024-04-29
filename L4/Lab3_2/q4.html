@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Color Survey Results</title>
+    <style type="text/css">
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .color-row {
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript">
+        var redClicks = 0;
+        var greenClicks = 0;
+        var blueClicks = 0;
+        var yellowClicks = 0;
+
+        function updatePercentage(color) {
+            switch (color) {
+                case 'red':
+                    redClicks++;
+                    break;
+                case 'green':
+                    greenClicks++;
+                    break;
+                case 'blue':
+                    blueClicks++;
+                    break;
+                case 'yellow':
+                    yellowClicks++;
+                    break;
+            }
+
+            var totalClicks = redClicks + greenClicks + blueClicks + yellowClicks;
+
+            var redPercentage = ((redClicks / totalClicks) * 100).toFixed(2);
+            var greenPercentage = ((greenClicks / totalClicks) * 100).toFixed(2);
+            var bluePercentage = ((blueClicks / totalClicks) * 100).toFixed(2);
+            var yellowPercentage = ((yellowClicks / totalClicks) * 100).toFixed(2);
+
+            document.getElementById('redPercentage').textContent = redPercentage + "%";
+            document.getElementById('greenPercentage').textContent = greenPercentage + "%";
+            document.getElementById('bluePercentage').textContent = bluePercentage + "%";
+            document.getElementById('yellowPercentage').textContent = yellowPercentage + "%";
+        }
+    </script>
+</head>
+<body>
+    <h1>Color Survey</h1>
+    
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Vote for your favorite color:</legend>
+            <input type="radio" name="color" value="red" id="red" checked="checked" onclick="updatePercentage('red')" />
+            <label for="red">Red</label><br />
+            <input type="radio" name="color" value="green" id="green" onclick="updatePercentage('green')" />
+            <label for="green">Green</label><br />
+            <input type="radio" name="color" value="blue" id="blue" onclick="updatePercentage('blue')" />
+            <label for="blue">Blue</label><br />
+            <input type="radio" name="color" value="yellow" id="yellow" onclick="updatePercentage('yellow')" />
+            <label for="yellow">Yellow</label><br />
+        </fieldset>
+    </form>
+    
+    <h2>Survey Results</h2>
+    <table>
+        <tr class="color-row" style="background-color: red;">
+            <th>Red</th>
+            <td id="redPercentage">0%</td>
+        </tr>
+        <tr class="color-row" style="background-color: green;">
+            <th>Green</th>
+            <td id="greenPercentage">0%</td>
+        </tr>
+        <tr class="color-row" style="background-color: blue;">
+            <th>Blue</th>
+            <td id="bluePercentage">0%</td>
+        </tr>
+        <tr class="color-row" style="background-color: yellow;">
+            <th>Yellow</th>
+            <td id="yellowPercentage">0%</td>
+        </tr>
+    </table>
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Binary Search</title>
+<script>
+function binarySearch(arr, key) {
+    let low = 0;
+    let high = arr.length - 1;
+
+    while (low <= high) {
+        let mid = Math.floor((low + high) / 2);
+
+        if (arr[mid] === key) {
+            return mid; // Element found
+        } else if (arr[mid] < key) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+
+    return -1; // Element not found
+}
+
+function performSearch() {
+    let key = parseInt(document.getElementById("searchKey").value);
+    let elements = document.getElementById("elements").value.split(',').map(Number);
+    let result = binarySearch(elements, key);
+
+    if (result !== -1) {
+        document.getElementById("searchResult").value = "FOUND at Index " + result;
+    } else {
+        document.getElementById("searchResult").value = "NOT FOUND";
+    }
+}
+</script>
+</head>
+<body>
+    <h2>Binary Search</h2>
+    <label for="elements">Enter elements (comma-separated):</label><br>
+    <input type="text" id="elements" name="elements"><br><br>
+
+    <label for="searchKey">Enter key to search:</label><br>
+    <input type="number" id="searchKey" name="searchKey"><br><br>
+
+    <input type="button" value="OK" onclick="performSearch()"><br><br>
+
+    <label for="searchResult">Search Result:</label><br>
+    <input type="text" id="searchResult" name="searchResult" readonly><br><br>
+</body>
+</html>

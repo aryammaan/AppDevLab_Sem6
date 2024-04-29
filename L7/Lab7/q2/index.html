@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mouse Movement</title>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+    .image-container {
+        position: relative;
+    }
+</style>
+</head>
+<body>
+<div id="output"></div>
+    <img class="image-container" src="https://via.placeholder.com/150" alt="Image 1">
+    <img class="image-container" src="https://via.placeholder.com/150" alt="Image 2">
+    <img class="image-container" src="https://via.placeholder.com/150" alt="Image 3">
+</div>
+
+<script>
+    function showCoordinates(event) {
+        var x = event.target.x;
+        var y = event.target.y;
+        var elementName = event.target.alt;
+        document.getElementById('output').innerText = 'Element: ' + elementName + ' | Coordinates: (' + x + ', ' + y + ')';
+    }
+
+    var imageContainers = document.querySelectorAll('.image-container');
+
+    imageContainers.forEach(function(container) {
+        container.addEventListener('mousemove', showCoordinates);
+    });
+</script>
+</body>
+</html>

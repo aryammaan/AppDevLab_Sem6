@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE bib [
+    <!ELEMENT bib (book*)>
+    <!ELEMENT book (title, (author+ | editor+ ), publisher, price)>
+    <!ATTLIST book year CDATA #REQUIRED >
+    <!ELEMENT author (last, first)>
+    <!ELEMENT editor (last, first, affiliation)>
+    <!ELEMENT title (#PCDATA)>
+    <!ELEMENT last (#PCDATA)>
+    <!ELEMENT first (#PCDATA)>
+    <!ELEMENT affiliation (#PCDATA)>
+    <!ELEMENT publisher (#PCDATA)>
+    <!ELEMENT price (#PCDATA)>
+]>
+<bib>
+    <book year="2012">
+        <title>The Kite runner</title>
+        <author>
+            <last>Tata</last>
+            <first>J.D.</first>
+        </author>
+        <publisher>Penguin</publisher>
+        <price>Rs150</price>
+    </book>
+    <book year="2003">
+        <title>The Da Vinci Code</title>
+        <editor>
+            <last>Smith</last>
+            <first>John</first>
+            <affiliation>Penguin</affiliation>
+        </editor>
+        <publisher>Penguin</publisher>
+        <price>Rs180</price>
+    </book>
+</bib>
+
+
+<!-- <!DOCTYPE note SYSTEM "Note.dtd"> -->

@@ -1,0 +1,29 @@
+.border {
+    width: 200px;
+    height: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+  }
+  
+  .thick-groove {
+    border: 10px groove;
+  }
+  
+  .medium-groove {
+    border: 5px groove;
+  }
+  
+  .thin-groove {
+    border: 2px groove;
+  }
+  
+  .thin-red-inset {
+    border: 1px inset red;
+  }
+  
+  .medium-blue-outset {
+    border: 3px outset blue;
+  }
+  

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Moving Text</title>
+<style>
+    #movingText {
+        position: absolute;
+    }
+</style>
+</head>
+<body>
+<div id="movingText">This text moves randomly!</div>
+
+<script>
+    function moveTextRandomly() {
+        var text = document.getElementById('movingText');
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+
+        var randomX = Math.floor(Math.random() * (windowWidth - text.offsetWidth));
+        var randomY = Math.floor(Math.random() * (windowHeight - text.offsetHeight));
+
+        text.style.left = randomX + 'px';
+        text.style.top = randomY + 'px';
+
+        var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16); 
+        var randomFontSize = Math.floor(Math.random() * 30) + 10; 
+
+        text.style.color = randomColor;
+        text.style.fontSize = randomFontSize + 'px';
+    }
+
+    setInterval(moveTextRandomly, 1000);
+</script>
+</body>
+</html>

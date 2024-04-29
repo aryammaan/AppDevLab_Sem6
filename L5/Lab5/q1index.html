@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    function calculate() {
+
+      var radius = parseFloat(document.getElementById("radius").value);
+
+      if (isNaN(radius)) {
+        alert("Please enter a valid number for the radius.");
+        return;
+      }
+
+      var sphereVolume = Sphere_Volume(radius);
+ 
+      var circleArea = Circle_Area(radius);
+
+      document.getElementById("result").innerHTML = "Volume of the sphere: " + sphereVolume.toFixed(2) + "<br>" +
+                                                      "Area of the circle: " + circleArea.toFixed(2);
+    }
+
+    function Sphere_Volume(radius) {
+      return (4/3) * Math.PI * Math.pow(radius, 3);
+    }
+
+    function Circle_Area(radius) {
+      return Math.PI * Math.pow(radius, 2);
+    }
+  </script>
+</head>
+<body>
+  <form>
+    <label for="radius">Enter the radius:</label>
+    <input type="text" id="radius">
+    <button type="button" onclick="calculate()">Calculate</button>
+  </form>
+  <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Viewer</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #upperFrame {
+            height: 50%;
+            width: 100%;
+            overflow: auto;
+            border-bottom: 1px solid #ccc;
+        }
+        #lowerFrame {
+            height: 50%;
+            width: 100%;
+            overflow: hidden;
+        }
+        img {
+            border: 2px solid black;
+            margin: 10px;
+            cursor: pointer;
+            height: 25vh;
+        }
+    </style>
+    <script>
+        function displayImage(imageSrc) {
+            document.getElementById('displayedImage').src = imageSrc;
+        }
+
+        function clearImage() {
+            document.getElementById('displayedImage').src = '';
+        }
+    </script>
+</head>
+<body>
+    <div>
+    <frame id="upperFrame">
+        <img src="image1.png" onclick="displayImage('image1.png')" />
+        <img src="image2.png" onclick="displayImage('image2.png')" />
+        <img src="image3.png" onclick="displayImage('image3.png')" />
+    </frame>
+    </div>
+    <div>
+        <frame id="lowerFrame">
+            <img id="displayedImage" src="" onclick="clearImage()" />
+        </frame>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Swap on Mouse Hover</title>
+</head>
+<body onmouseover="changeImage(true)" onmouseout="changeImage(false)">
+
+<div id="imageContainer" >
+    <img id="mainImage" src="image1.jpg" alt="Image 1">
+</div>
+
+<script>
+    function changeImage(isHovering) {
+        var image = document.getElementById('mainImage');
+
+        if (isHovering) {
+            image.src = 'image2.jpeg'; 
+        } else {
+            image.src = 'image1.jpeg'; 
+        }
+    }
+
+    document.rootElement.addEventListener("mouseover", function(){
+        changeImage(true);
+    });
+    document.rootElement.addEventListener("mouseout", function(){
+        changeImage(false);
+    });
+</script>
+
+</body>
+</html>
+

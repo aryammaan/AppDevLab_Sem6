@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    function Compute_Distance(x1, y1, x2, y2) {
+      return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+    }
+
+    function calculateDistance() {
+
+      var x1 = parseFloat(document.getElementById("x1").value);
+      var y1 = parseFloat(document.getElementById("y1").value);
+      var x2 = parseFloat(document.getElementById("x2").value);
+      var y2 = parseFloat(document.getElementById("y2").value);
+
+
+      if (isNaN(x1) || isNaN(y1) || isNaN(x2) || isNaN(y2)) {
+        alert("Please enter valid coordinates.");
+        return;
+      }
+
+      var distance = Compute_Distance(x1, y1, x2, y2);
+
+      document.getElementById("result").innerHTML = "Distance between the points: " + distance.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <form>
+    <label for="x1">Enter x1:</label>
+    <input type="text" id="x1"><br>
+    <label for="y1">Enter y1:</label>
+    <input type="text" id="y1"><br>
+    <label for="x2">Enter x2:</label>
+    <input type="text" id="x2"><br>
+    <label for="y2">Enter y2:</label>
+    <input type="text" id="y2"><br>
+    <button type="button" onclick="calculateDistance()">Calculate Distance</button>
+  </form>
+  <div id="result"></div>
+</body>
+</html>

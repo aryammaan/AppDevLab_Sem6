@@ -1,0 +1,99 @@
+<html>
+<head>
+  <title>Game of 15</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    td {
+      width: 50px;
+      height: 50px;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<table id="game-board">
+</table>
+
+<script>
+  // Function to initialize the game board
+  function initializeBoard() {
+    var numbers = [];
+    for (var i = 1; i <= 15; i++) {
+      numbers.push(i);
+    }
+    numbers.push(""); // Empty slot
+
+    // Shuffle the numbers
+    for (var i = numbers.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+    }
+
+    // Generate the table
+    var table = document.getElementById("game-board");
+    var index = 0;
+    for (var i = 0; i < 4; i++) {
+      var row = table.insertRow();
+      for (var j = 0; j < 4; j++) {
+        var cell = row.insertCell();
+        cell.innerHTML = numbers[index];
+        cell.setAttribute("onclick", "moveTile(this)");
+        if (numbers[index] === "") {
+          cell.classList.add("empty");
+        }
+        index++;
+      }
+    }
+  }
+
+  // Function to move the tile to the empty slot
+  function moveTile(tile) {
+    var emptyCell = document.querySelector(".empty");
+    var tileRow = tile.parentNode.rowIndex;
+    var tileCol = tile.cellIndex;
+    var emptyRow = emptyCell.parentNode.rowIndex;
+    var emptyCol = emptyCell.cellIndex;
+
+    // Check if the tile is adjacent to the empty slot
+    if ((Math.abs(tileRow - emptyRow) === 1 && tileCol === emptyCol) ||
+        (Math.abs(tileCol - emptyCol) === 1 && tileRow === emptyRow)) {
+      // Swap the tile and the empty slot
+      emptyCell.innerHTML = tile.innerHTML;
+      tile.innerHTML = "";
+      tile.classList.add("empty");
+      emptyCell.classList.remove("empty");
+    }
+
+    // Check if the puzzle is solved
+    if (isPuzzleSolved()) {
+      alert("Congratulations! You solved the puzzle!");
+    }
+  }
+
+  // Function to check if the puzzle is solved
+  function isPuzzleSolved() {
+    var cells = document.querySelectorAll("#game-board td:not(.empty)");
+    var currentNumber = 0;
+    for (var i = 0; i < cells.length; i++) {
+      if (parseInt(cells[i].innerHTML) !== currentNumber + 1) {
+        return false;
+      }
+      currentNumber++;
+    }
+    return true;
+  }
+
+  // Initialize the game board when the page loads
+  window.onload = function() {
+    initializeBoard();
+  };
+</script>
+
+</body>
+</html>

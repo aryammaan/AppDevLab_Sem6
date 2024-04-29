@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XHTML Elements Display</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>XHTML Elements Display</h1>
+<div id="output"></div>
+
+<script>
+    function displayAllElements() {
+        var allElements = document.all;
+        var output = document.getElementById('output');
+        var allElementsList = '<h2>Using document.all:</h2>';
+        for (var i = 0; i < allElements.length; i++) {
+            allElementsList += '<p>' + allElements[i].tagName + '</p>';
+        }
+        output.innerHTML += allElementsList;
+    }
+
+    function displayChildElements() {
+        var childElements = document.body.children;
+        var output = document.getElementById('output');
+        var childElementsList = '<h2>Using document.body.children:</h2>';
+        for (var i = 0; i < childElements.length; i++) {
+            childElementsList += '<p>' + childElements[i].tagName + '</p>';
+        }
+        output.innerHTML += childElementsList;
+    }
+
+    displayAllElements();
+    displayChildElements();
+</script>
+</body>
+</html>

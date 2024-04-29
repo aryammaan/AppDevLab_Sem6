@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Shopping List</title>
+    <style type="text/css">
+        ul {
+            margin-left: 75px;
+        }
+
+        ul ul {
+            margin-left: 15px;
+        }
+
+        ul ul li {
+            text-decoration: underline;
+        }
+
+        em {
+            font-weight: bold;
+            color: red;
+        }
+
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: red;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h2>Shopping list for Monday:</h2>
+    <ul style = "list-style-type: square;">
+        <li>Milk</li>
+        <li>Bread
+            <ul>
+                <li>White bread</li>
+                <li>Rye bread</li>
+                <li>Whole wheat bread</li>
+            </ul>
+        </li>
+        <li>Rice</li>
+        <li>Potatoes</li>
+        <li>Pizza <em>with mushrooms</em></li>
+    </ul>
+    <!-- <p><em>Go to the Grocery store</em></p> -->
+    <p><a href="#">Go to the Grocery store</a></p>
+</body>
+</html>

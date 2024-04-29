@@ -1,0 +1,53 @@
+<html>
+<head>
+  <title>Departmental Store</title>
+  <style>
+    #item-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #item-list li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    #item-list li:hover {
+      background-color: #f0f0f0;
+    }
+
+    #item-image {
+     width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Left Frame -->
+  <div id="left-frame">
+    <ul id="item-list">
+      <li onclick="displayItem('Shirt', 'image1.png', 25)">Shirt</li>
+      <li onclick="displayItem('Jeans', 'image2.png', 35)">Jeans</li>
+      <li onclick="displayItem('Shoes', 'image3.png', 45)">Shoes</li>
+      <!-- Add more items as needed -->
+    </ul>
+  </div>
+
+  <!-- Right Frame -->
+  <div id="right-frame">
+    <img id="item-image" src="" alt="Item Image">
+  </div>
+
+  <script>
+    // Function to display item and price in right frame
+    function displayItem(itemName, imageURL, price) {
+      // Display item image
+      document.getElementById('item-image').src = imageURL;
+
+      // Show alert dialog with item price
+      alert('Price of ' + itemName + ': $' + price);
+    }
+  </script>
+
+</body>
+</html>

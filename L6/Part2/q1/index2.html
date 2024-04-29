@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Manipulation</title>
+<script>
+function searchFirstOccurrence(str, substr) {
+    
+    return str.indexOf(substr);
+}
+
+function returnCharacterAtIndex(str, index) {
+
+    return str.charAt(index);
+}
+
+function concatenateStrings(str1, str2) {
+
+    return str1.concat(str2);
+}
+
+// Test cases
+let testString = "Hello world!";
+let testSubstring = "world";
+let testIndex = 6;
+let testString1 = "Hello ";
+let testString2 = "world!";
+
+document.write("I. First occurrence of \"" + testSubstring + "\": " + searchFirstOccurrence(testString, testSubstring) + "<br>");
+document.write("II. Character at index " + testIndex + ": " + returnCharacterAtIndex(testString, testIndex) + "<br>");
+document.write("III. Concatenated string: \"" + concatenateStrings(testString1, testString2) + "\"");
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,27 @@
+ul {
+    margin-left: 75px;
+}
+
+ul ul {
+    margin-left: 15px;
+}
+
+ul ul li {
+    text-decoration: underline;
+}
+
+em {
+    font-weight: bold;
+    color: red;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: red;
+    background-color: aqua;
+}

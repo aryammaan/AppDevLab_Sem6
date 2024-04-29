@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    function Integer_Power(base, exponent) {
+        if (exponent === 0) {
+            return 1;
+        }
+        let result = 1;
+        for (let i = 1; i <= Math.abs(exponent); i++) {
+            result *= base;
+        }
+        return exponent < 0 ? 1 / result : result;
+    }
+
+    function calculatePower() {
+
+      var base = parseFloat(document.getElementById("base").value);
+      var exponent = parseInt(document.getElementById("exponent").value);
+
+
+      if (isNaN(base) || isNaN(exponent)) {
+        alert("Please enter valid numbers for base and exponent.");
+        return;
+      }
+
+      var result = Integer_Power(base, exponent);
+
+
+      document.getElementById("result").innerHTML = "Result: " + result;
+    }
+  </script>
+</head>
+<body>
+  <form>
+    <label for="base">Enter the base:</label>
+    <input type="text" id="base"><br>
+    <label for="exponent">Enter the exponent:</label>
+    <input type="text" id="exponent"><br>
+    <button type="button" onclick="calculatePower()">Calculate Power</button>
+  </form>
+  <div id="result"></div>
+</body>
+</html>
